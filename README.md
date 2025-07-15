@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Insect Data Table</title>
+    <title> Table</title>
     <style>
         table {
             border-collapse: collapse;
