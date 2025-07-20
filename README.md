@@ -1,100 +1,69 @@
 # Hangbiao-Zhao.github.io
 
-<p><a href="/BasicWebDev/Color Scheme Assignment.html" target="black">Color Scheme Assignment</a></p>
+<p><a href="/BasicWebDev/Math Test Form Assignment.html" target="black">Math Test Form Assignment</a></p>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Sunset Glow Color Scheme</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #f7f7f7;
-    }
-
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 20px;
-    }
-
-    th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: center;
-      font-weight: normal;
-    }
-
-    th {
-      background-color: #333;
-      color: white;
-    }
-
-    .header-title {
-      font-family: 'Georgia', serif;
-      font-size: 28px;
-      text-align: center;
-      padding: 15px;
-      color: #ff6347;
-      background-color: #2c2c2c;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Math and Logic Quiz</title>
 </head>
 <body>
 
-  <div class="header-title">Sunset Glow</div>
+    <!-- Start of Test -->
+    <h1>Math & Logic Quiz</h1>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Color Name</th>
-        <th>Color Preview</th>
-        <th>Hex Value</th>
-        <th>RGB Value</th>
-        <th>HSL Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Blazing Orange</td>
-        <td style="background-color: #FF6F3C;"></td>
-        <td>#FF6F3C</td>
-        <td>rgb(255, 111, 60)</td>
-        <td>hsl(17, 100%, 62%)</td>
-      </tr>
-      <tr>
-        <td>Sunset Gold</td>
-        <td style="background-color: #FF9A3C;"></td>
-        <td>#FF9A3C</td>
-        <td>rgb(255, 154, 60)</td>
-        <td>hsl(30, 100%, 62%)</td>
-      </tr>
-      <tr>
-        <td>Soft Peach</td>
-        <td style="background-color: #FFD89A;"></td>
-        <td>#FFD89A</td>
-        <td>rgb(255, 216, 154)</td>
-        <td>hsl(36, 100%, 80%)</td>
-      </tr>
-      <tr>
-        <td>Evening Rose</td>
-        <td style="background-color: #FF5E6C;"></td>
-        <td>#FF5E6C</td>
-        <td>rgb(255, 94, 108)</td>
-        <td>hsl(353, 100%, 68%)</td>
-      </tr>
-      <tr>
-        <td>Twilight Plum</td>
-        <td style="background-color: #6A0572;"></td>
-        <td>#6A0572</td>
-        <td>rgb(106, 5, 114)</td>
-        <td>hsl(294, 91%, 23%)</td>
-      </tr>
-    </tbody>
-  </table>
+    <form action="/submit" method="post">
+
+        <label for="username">Enter your name:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <!-- Question 1 -->
+        <p>
+            1. What is the result of 5 &lt; 8?
+        </p>
+        <input type="radio" id="q1a" name="q1" value="True">
+        <label for="q1a">True</label><br>
+        <input type="radio" id="q1b" name="q1" value="False">
+        <label for="q1b">False</label><br><br>
+
+        <!-- Question 2 -->
+        <p>
+            2. Which of the following is a prime number?
+        </p>
+        <input type="radio" id="q2a" name="q2" value="12">
+        <label for="q2a">12</label><br>
+        <input type="radio" id="q2b" name="q2" value="7">
+        <label for="q2b">7</label><br>
+        <input type="radio" id="q2c" name="q2" value="15">
+        <label for="q2c">15</label><br><br>
+
+        <!-- Question 3 -->
+        <p>
+            3. Which symbol means "not equal to"?
+        </p>
+        <input type="radio" id="q3a" name="q3" value="&ne;">
+        <label for="q3a">&ne;</label><br>
+        <input type="radio" id="q3b" name="q3" value="&gt;">
+        <label for="q3b">&gt;</label><br>
+        <input type="radio" id="q3c" name="q3" value="&lt;">
+        <label for="q3c">&lt;</label><br><br>
+
+        <!-- Word Problem -->
+        <p>
+            4. Word Problem:<br>
+            Sarah has 3 apples. She gives 1 apple to Tom and buys 2 more.
+            How many apples does she have now?
+        </p>
+        <textarea name="word_problem" rows="4" cols="50" placeholder="Type your answer here..."></textarea><br><br>
+
+        <!-- Submit -->
+        <input type="submit" value="Submit Quiz">
+
+    </form>
+    <!-- End of Test -->
+
+</body>
+</html>
 
 </body>
 </html>
