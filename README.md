@@ -1,69 +1,94 @@
 # Hangbiao-Zhao.github.io
 
-<p><a href="/BasicWebDev/Math Test Form Assignment.html" target="black">Math Test Form Assignment</a></p>
+<p><a href="/BasicWebDev/Restaurant Menu Assignment.html" target="black">Restaurant Menu Assignment</a></p>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Math and Logic Quiz</title>
+  <meta charset="UTF-8" />
+  <title>Daily Menus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f3f3;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 30px;
+    }
+
+    .menu {
+      width: 400px;
+      height: 550px;
+      padding: 20px;
+      margin: 20px;
+      border: 3px solid #444;
+      border-radius: 10px;
+      color: #fff;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .breakfast {
+      background-image: url('https://images.unsplash.com/photo-1506084868230-bb9d95c24759'); /* breakfast bg */
+    }
+
+    .lunch {
+      background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4'); /* lunch bg */
+      background-position: top;
+    }
+
+    .dinner {
+      background-image: url('https://images.unsplash.com/photo-1543353071-873f17a7a088'); /* dinner bg */
+      background-repeat: no-repeat;
+      background-position: bottom;
+    }
+
+    h2 {
+      text-align: center;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    ul {
+      list-style-type: square;
+      margin-top: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Start of Test -->
-    <h1>Math & Logic Quiz</h1>
+  <div class="menu breakfast">
+    <h2>Breakfast Menu</h2>
+    <ul>
+      <li>Pancakes with syrup</li>
+      <li>Scrambled eggs & toast</li>
+      <li>Orange juice or coffee</li>
+    </ul>
+  </div>
 
-    <form action="/submit" method="post">
+  <div class="menu lunch">
+    <h2>Lunch Menu</h2>
+    <ul>
+      <li>Grilled chicken sandwich</li>
+      <li>Caesar salad</li>
+      <li>Lemon iced tea</li>
+    </ul>
+  </div>
 
-        <label for="username">Enter your name:</label><br>
-        <input type="text" id="username" name="username" required><br><br>
-
-        <!-- Question 1 -->
-        <p>
-            1. What is the result of 5 &lt; 8?
-        </p>
-        <input type="radio" id="q1a" name="q1" value="True">
-        <label for="q1a">True</label><br>
-        <input type="radio" id="q1b" name="q1" value="False">
-        <label for="q1b">False</label><br><br>
-
-        <!-- Question 2 -->
-        <p>
-            2. Which of the following is a prime number?
-        </p>
-        <input type="radio" id="q2a" name="q2" value="12">
-        <label for="q2a">12</label><br>
-        <input type="radio" id="q2b" name="q2" value="7">
-        <label for="q2b">7</label><br>
-        <input type="radio" id="q2c" name="q2" value="15">
-        <label for="q2c">15</label><br><br>
-
-        <!-- Question 3 -->
-        <p>
-            3. Which symbol means "not equal to"?
-        </p>
-        <input type="radio" id="q3a" name="q3" value="&ne;">
-        <label for="q3a">&ne;</label><br>
-        <input type="radio" id="q3b" name="q3" value="&gt;">
-        <label for="q3b">&gt;</label><br>
-        <input type="radio" id="q3c" name="q3" value="&lt;">
-        <label for="q3c">&lt;</label><br><br>
-
-        <!-- Word Problem -->
-        <p>
-            4. Word Problem:<br>
-            Sarah has 3 apples. She gives 1 apple to Tom and buys 2 more.
-            How many apples does she have now?
-        </p>
-        <textarea name="word_problem" rows="4" cols="50" placeholder="Type your answer here..."></textarea><br><br>
-
-        <!-- Submit -->
-        <input type="submit" value="Submit Quiz">
-
-    </form>
-    <!-- End of Test -->
-
-</body>
-</html>
+  <div class="menu dinner">
+    <h2>Dinner Menu</h2>
+    <ul>
+      <li>Spaghetti Bolognese</li>
+      <li>Garlic bread</li>
+      <li>Red wine or water</li>
+    </ul>
+  </div>
 
 </body>
 </html>
