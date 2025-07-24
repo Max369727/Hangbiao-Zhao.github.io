@@ -1,176 +1,69 @@
 # Hangbiao-Zhao.github.io
 
-<p><a href="/BasicWebDev/Team Page Assignment.html" target="black">Team Page Assignment</a></p>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Our Team - Creative Co.</title>
-  <style>
-    /* Reset & base styling */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<p><a href="/BasicWebDev/Flexbox/CSS Grid Puzzle Assignment.html" target="black">Flexbox/CSS Grid Puzzle Assignment</a></p>
+/* CSS Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "puzzle"
+    "info";
+  grid-gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+  background-color: #f4fcff;
+}
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f5f5f5;
-      line-height: 1.6;
-      padding-top: 60px; /* space for fixed nav */
-    }
+.header {
+  grid-area: header;
+  text-align: center;
+  background-color: #c1e8f0;
+  padding: 20px;
+  border-radius: 8px;
+}
 
-    /* Navigation Bar */
-    nav {
-      background-color: #333;
-      color: white;
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-    }
+.puzzle {
+  grid-area: puzzle;
+  text-align: center;
+}
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      padding: 15px 0;
-    }
+.puzzle-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  background-color: #fff;
+  border: 2px solid #cce;
+  border-radius: 8px;
+}
 
-    nav ul li {
-      margin: 0 20px;
-    }
+.puzzle-flex-container img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
 
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+/* Hiding the faulty piece */
+.hidden-piece {
+  display: none;
+}
 
-    nav ul li a:hover {
-      color: #ff9800;
-    }
+.info {
+  grid-area: info;
+  background-color: #e6f7ff;
+  padding: 20px;
+  border-left: 5px solid #2ca0c8;
+  border-radius: 5px;
+}
 
-    /* Page Header */
-    header {
-      text-align: center;
-      padding: 40px 20px 20px;
-    }
-
-    header h1 {
-      color: #333;
-    }
-
-    /* Team Section */
-    .team-container {
-      width: 90%;
-      max-width: 1100px;
-      margin: 30px auto;
-      overflow: hidden;
-    }
-
-    .team-member {
-      float: left;
-      width: 45%;
-      margin: 2.5%;
-      background-color: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-
-    .team-member img {
-      width: 100%;
-      height: auto;
-      border-radius: 6px;
-    }
-
-    .team-member h2 {
-      margin-top: 15px;
-      color: #222;
-    }
-
-    .team-member p {
-      color: #555;
-      margin-top: 10px;
-    }
-
-    /* Clearfix */
-    .team-container::after {
-      content: "";
-      display: table;
-      clear: both;
-    }
-
-    /* Footer positioned absolutely inside container */
-    .footer {
-      position: relative;
-      margin-top: 40px;
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-    }
-
-    .footer::before {
-      content: '';
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 2px;
-      background-color: #ccc;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Our Team</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Contact</a></li>
-    </ul>
-  </nav>
-
-  <!-- Header -->
-  <header>
-    <h1>Meet Our Team</h1>
-    <p>The passionate people behind Creative Co.</p>
-  </header>
-
-  <!-- Team Section -->
-  <div class="team-container">
-    <div class="team-member">
-      <img src="https://via.placeholder.com/400x250" alt="Alex - Team Lead">
-      <h2>Alex Rivera</h2>
-      <p>Team Lead with 10+ years of experience managing creative and development projects. Alex ensures everything runs smoothly and on time.</p>
-    </div>
-    <div class="team-member">
-      <img src="https://via.placeholder.com/400x250" alt="Jordan - Designer">
-      <h2>Jordan Chen</h2>
-      <p>Visual Designer with an eye for color and clean UI. Jordan crafts compelling visual experiences that speak volumes without words.</p>
-    </div>
-    <div class="team-member">
-      <img src="https://via.placeholder.com/400x250" alt="Riley - Developer">
-      <h2>Riley Thompson</h2>
-      <p>Full-stack Developer who transforms design into fast, functional web applications. Riley writes code like a poet writes verse.</p>
-    </div>
-    <div class="team-member">
-      <img src="https://via.placeholder.com/400x250" alt="Sam - Marketing">
-      <h2>Sam Patel</h2>
-      <p>Marketing strategist and content wizard. Sam knows how to reach audiences and build brands through storytelling and data.</p>
-    </div>
-
-    <!-- Positioned Footer -->
-    <div class="footer">
-      &copy; 2025 Creative Co. All rights reserved.
-    </div>
-  </div>
-
-</body>
-</html>
+ul {
+  list-style-type: square;
+  margin-top: 10px;
+  padding-left: 20px;
+}
