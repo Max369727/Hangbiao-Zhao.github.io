@@ -1,69 +1,30 @@
 # Hangbiao-Zhao.github.io
 
 <p><a href="/BasicWebDev/Flexbox/CSS Grid Puzzle Assignment.html" target="black">Flexbox/CSS Grid Puzzle Assignment</a></p>
-/* CSS Grid Layout */
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    "header"
-    "puzzle"
-    "info";
-  grid-gap: 30px;
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  font-family: Arial, sans-serif;
-  background-color: #f4fcff;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flexbox/CSS Grid Puzzle Assignment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Flexbox/CSS Grid Puzzle Assignment</h1>
+    <p><strong>Name:</strong> [Your Name]</p>
+    <p><strong>Puzzle:</strong> Puzzle 3</p>
+    <p><strong>Date:</strong> July 23, 2025</p>
 
-.header {
-  grid-area: header;
-  text-align: center;
-  background-color: #c1e8f0;
-  padding: 20px;
-  border-radius: 8px;
-}
-
-.puzzle {
-  grid-area: puzzle;
-  text-align: center;
-}
-
-.puzzle-flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 15px;
-  background-color: #fff;
-  border: 2px solid #cce;
-  border-radius: 8px;
-}
-
-.puzzle-flex-container img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-}
-
-/* Hiding the faulty piece */
-.hidden-piece {
-  display: none;
-}
-
-.info {
-  grid-area: info;
-  background-color: #e6f7ff;
-  padding: 20px;
-  border-left: 5px solid #2ca0c8;
-  border-radius: 5px;
-}
-
-ul {
-  list-style-type: square;
-  margin-top: 10px;
-  padding-left: 20px;
-}
+    <div class="puzzle-container">
+        <img src="images/puzzle3_A.jpg" alt="Piece A">
+        <img src="images/puzzle3_B.jpg" alt="Piece B">
+        <img src="images/puzzle3_C.jpg" alt="Piece C">
+        <img src="images/puzzle3_D.jpg" alt="Piece D">
+        <img src="images/puzzle3_E.jpg" alt="Piece E">
+        <img src="images/puzzle3_F.jpg" alt="Piece F" class="hidden">
+        <img src="images/puzzle3_G.jpg" alt="Piece G">
+        <img src="images/puzzle3_H.jpg" alt="Piece H">
+        <img src="images/puzzle3_I.jpg" alt="Piece I">
+        <img src="images/puzzle3_J.jpg" alt="Piece J">
+    </div>
+</body>
+</html>
