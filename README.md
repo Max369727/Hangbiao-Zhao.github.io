@@ -78,3 +78,91 @@
     </table>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Scorecard 2</title>
+    <style>
+        table {
+            width: 70%;
+            border: 2px solid #000;
+            margin: 30px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #888;
+        }
+        th:hover {
+            background-color: #d1e7dd;
+        }
+        caption {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Round 2 - Team C vs Team D</caption>
+        <tr>
+            <th>Player</th>
+            <th>Score</th>
+        </tr>
+        <tr>
+            <td>Player 3</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Player 4</td>
+            <td>25</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scorecard 3</title>
+  <style>
+    table {
+      margin: 20px auto;
+      width: 80%;
+      border-collapse: collapse;
+      font-family: Arial, sans-serif;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+    }
+    td:hover {
+      background-color: #ffebcd;
+    }
+    caption {
+      font-size: 1.3em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <caption>Round 3 - Team E vs Team F</caption>
+    <tr>
+      <th>Player</th>
+      <th>Score</th>
+    </tr>
+    <tr>
+      <td>Player 5</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>Player 6</td>
+      <td>22</td>
+    </tr>
+  </table>
+</body>
+</html>
