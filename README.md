@@ -82,86 +82,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Scorecard 2</title>
-    <style>
-        table {
-            width: 70%;
-            border: 2px solid #000;
-            margin: 30px auto;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 12px;
-            border: 1px solid #888;
-        }
-        th:hover {
-            background-color: #d1e7dd;
-        }
-        caption {
-            font-weight: bold;
-            font-size: 1.2em;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <title>Bowling Scorecard</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <table>
-        <caption>Round 2 - Team C vs Team D</caption>
-        <tr>
-            <th>Player</th>
-            <th>Score</th>
-        </tr>
-        <tr>
-            <td>Player 3</td>
-            <td>10</td>
-        </tr>
-        <tr>
-            <td>Player 4</td>
-            <td>25</td>
-        </tr>
-    </table>
+  <table>
+    <caption>Bowling League - Game 5</caption>
+    <tr>
+      <th>Player</th>
+      <th>Frame 1</th>
+      <th>Frame 2</th>
+      <th>Frame 3</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td>Charlie</td>
+      <td>9</td>
+      <td>8</td>
+      <td>10</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <td>Dana</td>
+      <td>7</td>
+      <td>10</td>
+      <td>9</td>
+      <td>26</td>
+    </tr>
+  </table>
 </body>
 </html>
+
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Scorecard 1</title>
-  <style>
-    table {
-      width: 60%;
-      border-collapse: collapse;
-      margin: 20px auto;
-    }
-    th, td {
-      border: 1px solid #444;
-      padding: 10px;
-      text-align: center;
-    }
-    tr:hover {
-      background-color: #f0f0f0;
-    }
-    caption {
-      font-size: 1.5em;
-      margin-bottom: 10px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>Baseball Scorecard</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <table>
-    <caption>Round 1 - Team A vs Team B</caption>
+    <caption>Baseball Game - Innings</caption>
     <tr>
-      <th>Player</th>
-      <th>Score</th>
+      <th>Team</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>Total</th>
     </tr>
     <tr>
-      <td>Player 1</td>
-      <td>15</td>
+      <td>Tigers</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>1</td>
+      <td>4</td>
     </tr>
     <tr>
-      <td>Player 2</td>
-      <td>20</td>
+      <td>Lions</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>2</td>
+      <td>3</td>
     </tr>
   </table>
 </body>
