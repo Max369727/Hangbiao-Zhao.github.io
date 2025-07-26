@@ -127,41 +127,41 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Scorecard 3</title>
+  <title>Scorecard 1</title>
   <style>
     table {
-      margin: 20px auto;
-      width: 80%;
+      width: 60%;
       border-collapse: collapse;
-      font-family: Arial, sans-serif;
+      margin: 20px auto;
     }
     th, td {
-      border: 1px solid #ccc;
-      padding: 8px 12px;
+      border: 1px solid #444;
+      padding: 10px;
+      text-align: center;
     }
-    td:hover {
-      background-color: #ffebcd;
+    tr:hover {
+      background-color: #f0f0f0;
     }
     caption {
-      font-size: 1.3em;
-      color: #333;
+      font-size: 1.5em;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
   <table>
-    <caption>Round 3 - Team E vs Team F</caption>
+    <caption>Round 1 - Team A vs Team B</caption>
     <tr>
       <th>Player</th>
       <th>Score</th>
     </tr>
     <tr>
-      <td>Player 5</td>
-      <td>18</td>
+      <td>Player 1</td>
+      <td>15</td>
     </tr>
     <tr>
-      <td>Player 6</td>
-      <td>22</td>
+      <td>Player 2</td>
+      <td>20</td>
     </tr>
   </table>
 </body>
