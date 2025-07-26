@@ -1,154 +1,30 @@
 # Hangbiao-Zhao.github.io
 
-<p><a href="/BasicWebDev/Scorecards Assignment.html" target="black">Scorecards Assignment</a></p>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Golf Scorecard</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 80%;
-            margin: 20px auto;
-            font-family: Arial, sans-serif;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #4CAF50;
-            color: white;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #e6f7e6;
-        }
-        input {
-            width: 50px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <h1>Golf Scorecard</h1>
-    <table>
-        <tr>
-            <th>Hole</th>
-            <th>1</th>
-            <th>2</th>
-            <th>3</th>
-            <th>4</th>
-            <th>5</th>
-            <th>6</th>
-            <th>7</th>
-            <th>8</th>
-            <th>9</th>
-            <th>Total</th>
-        </tr>
-        <tr>
-            <td>Par</td>
-            <td>4</td>
-            <td>3</td>
-            <td>5</td>
-            <td>4</td>
-            <td>4</td>
-            <td>3</td>
-            <td>4</td>
-            <td>5</td>
-            <td>4</td>
-            <td>36</td>
-        </tr>
-        <tr>
-            <td><input type="text" placeholder="Player"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td><input type="number"></td>
-            <td></td>
-        </tr>
-    </table>
-</body>
-</html>
-
+<p><a href="/BasicWebDev/Flexbox/CSS Grid Puzzle Assignment.html" target="black">Flexbox/CSS Grid Puzzle Assignment</a></p>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Bowling Scorecard</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <title>Flexbox/CSS Grid Puzzle Assignment</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <table>
-    <caption>Bowling League - Game 5</caption>
-    <tr>
-      <th>Player</th>
-      <th>Frame 1</th>
-      <th>Frame 2</th>
-      <th>Frame 3</th>
-      <th>Total</th>
-    </tr>
-    <tr>
-      <td>Charlie</td>
-      <td>9</td>
-      <td>8</td>
-      <td>10</td>
-      <td>27</td>
-    </tr>
-    <tr>
-      <td>Dana</td>
-      <td>7</td>
-      <td>10</td>
-      <td>9</td>
-      <td>26</td>
-    </tr>
-  </table>
-</body>
-</html>
+    <h1>Flexbox/CSS Grid Puzzle Assignment</h1>
+    <p><strong>Name:</strong> [Your Name]</p>
+    <p><strong>Puzzle:</strong> Puzzle 3</p>
+    <p><strong>Date:</strong> July 23, 2025</p>
 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Baseball Scorecard</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <table>
-    <caption>Baseball Game - Innings</caption>
-    <tr>
-      <th>Team</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>Total</th>
-    </tr>
-    <tr>
-      <td>Tigers</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2</td>
-      <td>1</td>
-      <td>4</td>
-    </tr>
-    <tr>
-      <td>Lions</td>
-      <td>0</td>
-      <td>1</td>
-      <td>0</td>
-      <td>2</td>
-      <td>3</td>
-    </tr>
-  </table>
+    <div class="puzzle-container">
+        <img src="images/puzzle3_A.jpg" alt="Piece A">
+        <img src="images/puzzle3_B.jpg" alt="Piece B">
+        <img src="images/puzzle3_C.jpg" alt="Piece C">
+        <img src="images/puzzle3_D.jpg" alt="Piece D">
+        <img src="images/puzzle3_E.jpg" alt="Piece E">
+        <img src="images/puzzle3_F.jpg" alt="Piece F" class="hidden">
+        <img src="images/puzzle3_G.jpg" alt="Piece G">
+        <img src="images/puzzle3_H.jpg" alt="Piece H">
+        <img src="images/puzzle3_I.jpg" alt="Piece I">
+        <img src="images/puzzle3_J.jpg" alt="Piece J">
+    </div>
 </body>
 </html>
