@@ -1,49 +1,51 @@
 # Hangbiao-Zhao.github.io
 
-<p><a href="/BasicWebDev/Video Embedding Tutorial Assignment.html" target="black">Video Embedding Tutorial Assignment</a></p>
+<p><a href="/BasicWebDev/The Imitation Assignment.html" target="black">The Imitation Assignment</a></p>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How to Embed a Video</title>
-  <link rel="stylesheet" href="style.css">
+  <title>CSS3 Image Effects Project</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>How to Embed a Video on Your Web Page</h1>
+  <h1>CSS3 Image Effects Showcase</h1>
 
-  <div class="step">
-    <h2>Step 1: Find the Video URL</h2>
-    <p>Go to the video on YouTube or Vimeo that you want to embed. Copy the URL of the video.</p>
-    <img src="images/step1.png" alt="Screenshot showing how to copy a YouTube video URL">
-  </div>
+  <section class="image-container">
+    <div class="image-card">
+      <h2>1. Drop Shadow</h2>
+      <img src="images/image1.jpg" class="shadow">
+    </div>
 
-  <div class="step">
-    <h2>Step 2: Get the Embed Code</h2>
-    <p>Click the "Share" button and select "Embed". Copy the HTML iframe code provided.</p>
-    <img src="images/step2.png" alt="Screenshot showing how to get the embed code">
-  </div>
+    <div class="image-card">
+      <h2>2. Gradient Overlay</h2>
+      <img src="images/image2.jpg" class="gradient">
+    </div>
 
-  <div class="step">
-    <h2>Step 3: Paste the Code into Your HTML</h2>
-    <p>Open your HTML file in a code editor and paste the embed code where you want the video to appear.</p>
-    <img src="images/step3.png" alt="Screenshot showing code being pasted into an HTML file">
-  </div>
+    <div class="image-card">
+      <h2>3. Grayscale Filter</h2>
+      <img src="images/image3.jpg" class="gray">
+    </div>
 
-  <div class="step">
-    <h2>Step 4: Save and View</h2>
-    <p>Save your HTML file and open it in a web browser. Your video will now be embedded!</p>
-    <img src="images/step4.png" alt="Screenshot showing a browser displaying the embedded video">
-  </div>
+    <div class="image-card">
+      <h2>4. Blur Effect</h2>
+      <img src="images/image4.jpg" class="blur">
+    </div>
 
-  <h2>Example Embedded Video:</h2>
-  <div class="video-container">
-    <iframe width="560" height="315"
-      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-      title="Example Video"
-      frameborder="0"
-      allowfullscreen>
-    </iframe>
-  </div>
+    <div class="image-card">
+      <h2>5. Color Overlay</h2>
+      <div class="color-overlay">
+        <img src="images/image5.jpg">
+      </div>
+    </div>
+
+    <div class="image-card">
+      <h2>6. Football Field Combo</h2>
+      <div class="combo-field">
+        <img src="images/football_field.jpg" class="field">
+        <img src="images/tic-tac-toe.png" class="overlay">
+      </div>
+    </div>
+  </section>
 </body>
 </html>
