@@ -1,3 +1,6 @@
+# Hangbiao-Zhao.github.io
+
+<p><a href="/BasicWebDev/Review Cards Assignment.html" target="black">Review Cards Assignment</a></p>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +18,11 @@
         }
         
         body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
         .header {
             text-align: center;
             margin-bottom: 40px;
