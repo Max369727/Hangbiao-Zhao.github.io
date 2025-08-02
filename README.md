@@ -42,4 +42,11 @@
         <fieldset>
             <legend>Availability</legend>
             <input type="checkbox" id="weekday" name="availability" value="weekday">
+            <label for="weekday">Weekdays</label>
+            <!-- More checkboxes -->
+        </fieldset>
+
+        <button type="submit">Submit Application</button>
+    </form>
+</section>
 
