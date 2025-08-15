@@ -23,7 +23,7 @@
         <section class="hero-content">
             <h1>Building a Stronger Community Together</h1>
             <p>
-                Join over 500 volunteers making a difference every week
+                Join over volunteers making a difference every month
             </p>
             <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
         </section>
@@ -120,9 +120,9 @@
         </select>
 
         <fieldset>
-            <legend>Availability</legend>
-            <input type="checkbox" id="weekday" name="availability" value="weekday">
-            <label for="weekday">Weekdays</label>
+            <legend> Availability</legend>
+            <input type="checkbox" id="monthly" name="availability" value="monthly">
+            <label for="monthly">Weekdays</label>
             <!-- More checkboxes -->
         </fieldset>
 
