@@ -1,238 +1,182 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community Cares - Helping Our Neighborhood Thrive</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <title>扫雷游戏</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    h1 {
+      margin-top: 20px;
+    }
+    #board {
+      display: grid;
+      grid-template-columns: repeat(10, 30px);
+      grid-template-rows: repeat(10, 30px);
+      margin: 20px auto;
+      width: max-content;
+      user-select: none;
+    }
+    .cell {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #888;
+      line-height: 30px;
+      text-align: center;
+      font-size: 16px;
+      background-color: #ccc;
+      cursor: pointer;
+    }
+    .cell.revealed {
+      background-color: #eee;
+      cursor: default;
+    }
+    .cell.bomb {
+      background-color: red;
+      color: white;
+    }
+    .cell.flagged {
+      background-color: yellow;
+    }
+  </style>
 </head>
 <body>
-    <header class="header-grid">
-        <img src="images/logo.png" alt="Community Cares logo" class="logo">
-        <nav class="nav-flex">
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="volunteer.html">Volunteer</a>
-            <a href="stories.html">Success Stories</a>
-            <a href="events.html">Events</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+  <h1>扫雷</h1>
+  <div id="board"></div>
+  <script>
+    const boardSize = 10;
+    const bombCount = 10;
+    const board = document.getElementById("board");
+    let cells = [];
 
-    <main class="hero-grid">
-        <section class="hero-content">
-            <h1>Building a Stronger Community Together</h1>
-            <p>
-                Join over volunteers making a difference every month
-            </p>
-            <a href="volunteer.html" class="cta-button">Become a Volunteer</a>
-        </section>
-        <img src="images/hero-image.jpg" alt="Volunteers planting trees in community garden" class="hero-image">
-    </main>
+    function createBoard() {
+      // 初始化
+      cells = [];
+      board.innerHTML = "";
 
-    <section class="stats-flex">
-        <div class="stat-card">
-            <h3>1,200+</h3>
-            <p>
-                People Helped Monthly
-            </p>
-        </div>
-        <div class="stat-card">
-            <h3>85</h3>
-            <p>
-                Community Projects
-            </p>
-        </div>
-        <div class="stat-card">
-            <h3>12</h3>
-            <p>
-                Years of Service
-            </p>
-        </div>
-    </section>
+      // 创建所有格子对象
+      for (let i = 0; i < boardSize; i++) {
+        cells[i] = [];
+        for (let j = 0; j < boardSize; j++) {
+          const cell = document.createElement("div");
+          cell.classList.add("cell");
+          cell.dataset.row = i;
+          cell.dataset.col = j;
+          board.appendChild(cell);
+          cells[i][j] = {
+            element: cell,
+            hasBomb: false,
+            revealed: false,
+            flagged: false,
+            adjacentBombs: 0,
+          };
 
-    <footer>
-        <!-- Footer content -->
-    </footer>
+          // 左键点击
+          cell.addEventListener("click", () => handleClick(i, j));
+          // 右键标记
+          cell.addEventListener("contextmenu", (e) => {
+            e.preventDefault();
+            handleFlag(i, j);
+          });
+        }
+      }
+
+      placeBombs();
+      countAdjacentBombs();
+    }
+
+    function placeBombs() {
+      let bombsPlaced = 0;
+      while (bombsPlaced < bombCount) {
+        let row = Math.floor(Math.random() * boardSize);
+        let col = Math.floor(Math.random() * boardSize);
+        if (!cells[row][col].hasBomb) {
+          cells[row][col].hasBomb = true;
+          bombsPlaced++;
+        }
+      }
+    }
+
+    function countAdjacentBombs() {
+      for (let i = 0; i < boardSize; i++) {
+        for (let j = 0; j < boardSize; j++) {
+          let count = 0;
+          for (let dx = -1; dx <= 1; dx++) {
+            for (let dy = -1; dy <= 1; dy++) {
+              if (
+                i + dx >= 0 && i + dx < boardSize &&
+                j + dy >= 0 && j + dy < boardSize &&
+                cells[i + dx][j + dy].hasBomb
+              ) {
+                count++;
+              }
+            }
+          }
+          cells[i][j].adjacentBombs = count;
+        }
+      }
+    }
+
+    function handleClick(row, col) {
+      const cell = cells[row][col];
+      if (cell.revealed || cell.flagged) return;
+
+      cell.revealed = true;
+      cell.element.classList.add("revealed");
+
+      if (cell.hasBomb) {
+        cell.element.classList.add("bomb");
+        cell.element.textContent = "💣";
+        revealAll();
+        alert("💥 游戏结束！");
+      } else if (cell.adjacentBombs > 0) {
+        cell.element.textContent = cell.adjacentBombs;
+      } else {
+        // 自动展开周围区域
+        for (let dx = -1; dx <= 1; dx++) {
+          for (let dy = -1; dy <= 1; dy++) {
+            let newRow = row + dx;
+            let newCol = col + dy;
+            if (
+              newRow >= 0 && newRow < boardSize &&
+              newCol >= 0 && newCol < boardSize
+            ) {
+              handleClick(newRow, newCol);
+            }
+          }
+        }
+      }
+    }
+
+    function handleFlag(row, col) {
+      const cell = cells[row][col];
+      if (cell.revealed) return;
+      cell.flagged = !cell.flagged;
+      cell.element.classList.toggle("flagged");
+      cell.element.textContent = cell.flagged ? "🚩" : "";
+    }
+
+    function revealAll() {
+      for (let i = 0; i < boardSize; i++) {
+        for (let j = 0; j < boardSize; j++) {
+          const cell = cells[i][j];
+          if (!cell.revealed) {
+            cell.revealed = true;
+            cell.element.classList.add("revealed");
+            if (cell.hasBomb) {
+              cell.element.textContent = "💣";
+              cell.element.classList.add("bomb");
+            } else if (cell.adjacentBombs > 0) {
+              cell.element.textContent = cell.adjacentBombs;
+            }
+          }
+        }
+      }
+    }
+
+    createBoard();
+  </script>
 </body>
 </html>
-<section class="about-grid">
-    <article class="mission-statement">
-        <h2>Our Mission</h2>
-        <p>
-            Founded in 2012, Community Cares connects volunteers with meaningful opportunities to address food insecurity, housing needs, and educational support in our city.
-        </p>
-    </article>
-
-    <div class="team-gallery">
-        <figure>
-            <img src="images/director.jpg" alt="Executive Director Maria Gonzalez smiling">
-            <figcaption>Maria Gonzalez, Executive Director</figcaption>
-        </figure>
-        <!-- More team members -->
-    </div>
-
-    <aside class="timeline">
-        <h3>Our Journey</h3>
-        <ul class="timeline-list">
-            <li><strong>2012</strong> - Founded by local residents</li>
-            <li><strong>2015</strong> - Expanded to 3 neighborhoods</li>
-            <!-- More timeline items -->
-        </ul>
-    </aside>
-</section>
-<section class="volunteer-options">
-    <h2>Current Opportunities</h2>
-
-    <table class="opportunity-table">
-        <thead>
-            <tr>
-                <th scope="col">Position</th>
-                <th scope="col">Time Commitment</th>
-                <th scope="col">Skills Needed</th>
-                <th scope="col">Location</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Food Pantry Assistant</td>
-                <td>4 hrs/week</td>
-                <td>None required</td>
-                <td>Main Community Center</td>
-            </tr>
-            <!-- More rows -->
-        </tbody>
-    </table>
-
-    <form class="volunteer-form">
-        <h3>Apply to Volunteer</h3>
-        <label for="name">Full Name:</label>
-        <input type="text" id="name" name="name" required>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-
-        <label for="interest">Area of Interest:</label>
-        <select id="interest" name="interest">
-            <option value="">Select one...</option>
-            <option value="food">Food Pantry</option>
-            <!-- More options -->
-        </select>
-
-        <fieldset>
-            <legend> Availability</legend>
-            <input type="checkbox" id="monthly" name="availability" value="monthly">
-            <label for="monthly">Weekdays</label>
-            <!-- More checkboxes -->
-        </fieldset>
-
-        <button type="submit">Submit Application</button>
-    </form>
-</section>
-<section class="stories-grid">
-    <article class="featured-story">
-        <img src="images/family-story.jpg" alt="The Johnson family receiving groceries">
-        <div class="story-content">
-            <h3>The Johnson Family's Story</h3>
-            <p>
-                "When my husband lost his job, Community Cares provided groceries and helped with rent. Now I volunteer to help others."
-            </p>
-            <p>
-                - Tamika Johnson
-            </p>
-        </div>
-    </article>
-
-    <div class="story-gallery">
-        <figure>
-            <img src="images/garden1.jpg" alt="Community garden before renovation">
-            <figcaption>Vacant lot in 2020</figcaption>
-        </figure>
-        <figure>
-            <img src="images/garden2.jpg" alt="Community garden after renovation">
-            <figcaption>Thriving garden in 2023</figcaption>
-        </figure>
-    </div>
-
-    <aside class="impact-stats">
-        <h3>By the Numbers</h3>
-        <ul>
-            <li>500+ families fed monthly</li>
-            <li>120 students tutored weekly</li>
-            <!-- More stats -->
-        </ul>
-    </aside>
-</section>
-<section class="events-container">
-    <h2>Upcoming Events</h2>
-
-    <div class="event-flex">
-        <article class="event-card">
-            <h3>Monthly Food Drive</h3>
-            <p class="event-date">
-                June 15, 2023 | 9am-2pm
-            </p>
-            <p>
-                Help sort and distribute food donations at our main location.
-            </p>
-            <a href="#register-food-drive" class="event-button">Sign Up</a>
-        </article>
-        <!-- More event cards -->
-    </div>
-
-    <section class="video-section">
-        <h3>See Our Work in Action</h3>
-        <video controls poster="images/video-poster.jpg">
-            <source src="media/impact-video.mp4" type="video/mp4">
-            <track kind="captions" src="media/captions.vtt" srclang="en" label="English">
-            <p>
-                Your browser doesn't support HTML5 video. <a href="media/impact-video.mp4">Download the video</a> instead.
-            </p>
-        </video>
-        <a href="media/impact-transcript.txt" class="transcript-link">Video Transcript</a>
-    </section>
-</section>
-<section class="contact-grid">
-    <div class="contact-info">
-        <h2>Get in Touch</h2>
-        <address>
-            <p>
-                <strong>Community Cares</strong><br>
-                123 Helping Street<br>
-                Your City, ST 12345
-            </p>
-
-            <p>
-                Phone: <a href="tel:+15551234567">(555) 123-4567</a><br>
-                Email: <a href="mailto:info@communitycares.org">info@communitycares.org</a>
-            </p>
-        </address>
-
-        <div class="social-links">
-            <a href="https://facebook.com/communitycares" aria-label="Facebook">
-                <img src="images/facebook-icon.png" alt="Facebook icon">
-            </a>
-            <!-- More social links -->
-        </div>
-    </div>
-
-    <form class="contact-form">
-        <h3>Send Us a Message</h3>
-        <label for="contact-name">Name:</label>
-        <input type="text" id="contact-name" required>
-
-        <label for="contact-email">Email:</label>
-        <input type="email" id="contact-email" required>
-
-        <label for="contact-message">Message:</label>
-        <textarea id="contact-message" rows="5" required></textarea>
-
-        <button type="submit">Send Message</button>
-    </form>
-
-    <div class="map-container">
-        <iframe src="https://maps.google.com/maps?q=123+Helping+Street&output=embed"
-            title="Map to Community Cares location"></iframe>
-    </div>
-</section>
-
