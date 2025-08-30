@@ -75,11 +75,6 @@
 
           // 左键点击
           cell.addEventListener("click", () => handleClick(i, j));
-          // 右键标记
-          cell.addEventListener("contextmenu", (e) => {
-            e.preventDefault();
-            handleFlag(i, j);
-          });
         }
       }
 
@@ -175,6 +170,18 @@
         }
       }
     }
+
+    // 监听按键事件
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "w" || event.key === "W") {
+        const activeCell = document.querySelector(".cell:hover");
+        if (activeCell) {
+          const row = activeCell.dataset.row;
+          const col = activeCell.dataset.col;
+          handleFlag(Number(row), Number(col));
+        }
+      }
+    });
 
     createBoard();
   </script>
