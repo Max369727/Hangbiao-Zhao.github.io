@@ -63,6 +63,8 @@
     const bombCount = 10;
     const board = document.getElementById("board");
     let cells = [];
+    const longPressTime = 1000;  // 长按时间设置为 1 秒
+    let pressTimer;
 
     function createBoard() {
       // 初始化
@@ -89,8 +91,15 @@
           // 左键点击
           cell.addEventListener("click", () => handleClick(i, j));
 
-          // 双击标记
-          cell.addEventListener("dblclick", () => handleFlag(i, j));
+          // 长按标记
+          cell.addEventListener("mousedown", (e) => startPress(i, j, e));
+          cell.addEventListener("touchstart", (e) => startPress(i, j, e));
+          
+          // 释放时清除计时器
+          cell.addEventListener("mouseup", () => cancelPress());
+          cell.addEventListener("touchend", () => cancelPress());
+          cell.addEventListener("mouseleave", () => cancelPress());
+          cell.addEventListener("touchleave", () => cancelPress());
         }
       }
 
@@ -159,6 +168,16 @@
           }
         }
       }
+    }
+
+    function startPress(row, col, e) {
+      pressTimer = setTimeout(() => {
+        handleFlag(row, col);
+      }, longPressTime);
+    }
+
+    function cancelPress() {
+      clearTimeout(pressTimer);
     }
 
     function handleFlag(row, col) {
