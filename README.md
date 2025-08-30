@@ -2,30 +2,37 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>扫雷游戏</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
     }
     h1 {
-      margin-top: 20px;
+      margin: 20px 0;
     }
     #board {
       display: grid;
-      grid-template-columns: repeat(10, 30px);
-      grid-template-rows: repeat(10, 30px);
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(10, 1fr);
       margin: 20px auto;
-      width: max-content;
+      width: 90vw; /* 适配手机屏幕 */
+      height: 90vw;
+      max-width: 400px; /* 最大宽度 */
+      max-height: 400px;
       user-select: none;
     }
     .cell {
-      width: 30px;
-      height: 30px;
+      width: 100%;
+      height: 100%;
       border: 1px solid #888;
       line-height: 30px;
       text-align: center;
-      font-size: 16px;
+      font-size: 18px;
       background-color: #ccc;
       cursor: pointer;
     }
@@ -39,6 +46,12 @@
     }
     .cell.flagged {
       background-color: yellow;
+    }
+    /* 优化响应式布局 */
+    @media (max-width: 600px) {
+      .cell {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -75,6 +88,9 @@
 
           // 左键点击
           cell.addEventListener("click", () => handleClick(i, j));
+
+          // 双击标记
+          cell.addEventListener("dblclick", () => handleFlag(i, j));
         }
       }
 
@@ -170,18 +186,6 @@
         }
       }
     }
-
-    // 监听按键事件
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "w" || event.key === "W") {
-        const activeCell = document.querySelector(".cell:hover");
-        if (activeCell) {
-          const row = activeCell.dataset.row;
-          const col = activeCell.dataset.col;
-          handleFlag(Number(row), Number(col));
-        }
-      }
-    });
 
     createBoard();
   </script>
